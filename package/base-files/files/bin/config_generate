@@ -311,7 +311,7 @@ generate_static_system() {
 	uci -q batch <<-EOF
 		delete system.@system[0]
 		add system system
-		set system.@system[-1].hostname='Main'  # 主机名修改这里
+		set system.@system[-1].hostname='OpenWrt'  # 主机名修改这里
 		set system.@system[-1].timezone='CST-8'  # 时区修改这里就好了, 原来这里是UTC
 		set system.@system[-1].zonename='Asia/Shanghai'
 		set system.@system[-1].ttylogin='0'
