@@ -81,7 +81,7 @@ for (let phy_name, phy in board.wlan) {
 		let country, defaults, num_global_macaddr;
 		if (board.wlan.defaults) {
 			defaults = board.wlan.defaults.ssids?.[band_name]?.ssid ? board.wlan.defaults.ssids?.[band_name] : board.wlan.defaults.ssids?.all;
-			country = board.wlan.defaults.country || 'CN';
+			country = board.wlan.defaults.country;
 			if (!country && band_name != '2g')
 				defaults = null;
 			num_global_macaddr = board.wlan.defaults.ssids?.[band_name]?.mac_count;
