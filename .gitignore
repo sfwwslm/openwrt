@@ -1,3 +1,5 @@
+/package/luci-*
+
 *.o
 .DS_Store
 .*.swp
