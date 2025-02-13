@@ -16,6 +16,14 @@ fi
 
 # 修改配置文件中的主机名
 sed -i "s/hostname='.*'/hostname='$HOSTNAME'/g" "$CFG_FILE"
-echo "主机名已设置为: $HOSTNAME"
+echo "主机名已设置为: $HOSTNAME. 10秒后开始编译！"
+
+sleep 10
+
+rm -rf bin/
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j"$1"
+
+sed -i "s/hostname='.*'/hostname='OpenWrt'/g" "$CFG_FILE"
+
+echo "已恢复配置文件中的主机名"
