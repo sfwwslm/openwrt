@@ -41,7 +41,6 @@ jobs:
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        make download -j"$(nproc)" || make download -j1 V=s
 
     - name: Install themes & tools
       run: |
@@ -55,6 +54,7 @@ jobs:
         echo "⚙️ 使用配置文件: $CONFIG_FILE"
         cp "$CONFIG_FILE" .config
         make defconfig
+        make download -j"$(nproc)" || make download -j1 V=s
         make -j"$(nproc)" || make -j1 V=s
 
     - name: Upload to GitHub Release
