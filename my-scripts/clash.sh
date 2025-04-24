@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 rm -rf OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
