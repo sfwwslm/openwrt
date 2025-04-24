@@ -60,7 +60,9 @@ jobs:
     - name: Upload to GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        files: bin/targets/**/*
+        files: |
+          bin/targets/**/*
+          !bin/targets/**/*/packages/**
         tag_name: openwrt-${{ github.event.inputs.build_type }}-${{ github.run_number }}
         name: "OpenWRT ${{ github.event.inputs.build_type }} Build"
         body: |
