@@ -62,7 +62,7 @@ jobs:
     - name: Build OpenWRT ${{ github.event.inputs.build_type }}
       run: |
         BUILD_TYPE="${{ github.event.inputs.build_type }}"
-        CONFIG_FILE="my-config/${BUILD_TYPE,,}"
+        CONFIG_FILE="ci/config/${BUILD_TYPE,,}"
         echo "⚙️ 使用配置文件: $CONFIG_FILE"
         cp "$CONFIG_FILE" .config
         make defconfig
