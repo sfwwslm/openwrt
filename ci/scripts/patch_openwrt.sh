@@ -25,6 +25,7 @@ s|add_list system.ntp.server=.3.openwrt.pool.ntp.org.|add_list system.ntp.server
 }' package/base-files/files/bin/config_generate
 
 # 修改版本命名
-sed -i 's|VERSION_DIST:=$(if $(VERSION_DIST),$(VERSION_DIST),Main)|VERSION_MANUFACTURER:=$(call qstrip,$(CONFIG_VERSION_MANUFACTURER))\nVERSION_MANUFACTURER:=$(if $(VERSION_MANUFACTURER),$(VERSION_MANUFACTURER),Main)|' include/version.mk
+sed -i 's|VERSION_DIST:=$(if $(VERSION_DIST),$(VERSION_DIST),OpenWrt)|VERSION_DIST:=$(if $(VERSION_DIST),$(VERSION_DIST),Main)|' include/version.mk
 
+sed -i 's|VERSION_MANUFACTURER:=$(if $(VERSION_MANUFACTURER),$(VERSION_MANUFACTURER),OpenWrt)|VERSION_MANUFACTURER:=$(if $(VERSION_MANUFACTURER),$(VERSION_MANUFACTURER),Main)|' include/version.mk
 echo "✅ OpenWRT 配置修改完成。"
