@@ -25,7 +25,9 @@ s|add_list system.ntp.server=.time.apple.com.|add_list system.ntp.server='\''3.o
 }' package/base-files/files/bin/config_generate
 
 # 还原版本命名
-sed -i '/VERSION_MANUFACTURER/d' include/version.mk
-sed -i 's|VERSION_MANUFACTURER:=$(if $(VERSION_MANUFACTURER),$(VERSION_MANUFACTURER),Main)|VERSION_DIST:=$(if $(VERSION_DIST),$(VERSION_DIST),Main)|' include/version.mk
+# 恢复默认值为 OpenWrt
+sed -i 's|VERSION_DIST:=$(if $(VERSION_DIST),$(VERSION_DIST),Main)|VERSION_DIST:=$(if $(VERSION_DIST),$(VERSION_DIST),OpenWrt)|' include/version.mk
+
+sed -i 's|VERSION_MANUFACTURER:=$(if $(VERSION_MANUFACTURER),$(VERSION_MANUFACTURER),Main)|VERSION_MANUFACTURER:=$(if $(VERSION_MANUFACTURER),$(VERSION_MANUFACTURER),OpenWrt)|' include/version.mk
 
 echo "✅ OpenWRT 配置还原完成。"
