@@ -40,6 +40,7 @@ jobs:
     # 🧹 清理磁盘空间，防止编译 Rust 失败
     - name: Free up disk space
       run: |
+        echo "$(nproc)"
         echo "📦 清理磁盘空间以确保有足够的构建空间"
         df -h
         sudo rm -rf /usr/share/dotnet
@@ -55,8 +56,8 @@ jobs:
 
     - name: Install themes & tools
       run: |
-        ./my-scripts/argon.sh
-        ./my-scripts/clash.sh
+        ./ci/scripts/luci-theme-argon.sh
+        ./ci/scripts/luci-app-openclash.sh
 
     - name: Build OpenWRT ${{ github.event.inputs.build_type }}
       run: |
