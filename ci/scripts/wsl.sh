@@ -18,6 +18,10 @@ fi
 sed -i "s/hostname='.*'/hostname='$HOSTNAME'/g" "$CFG_FILE"
 echo "主机名已设置为: $HOSTNAME. 5秒后开始编译！"
 
+mkdir -p files/lib/firmware
+
+cp ci/ax211/* files/lib/firmware/
+
 sleep 5
 
 rm -rf bin/
